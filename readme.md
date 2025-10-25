@@ -5,10 +5,10 @@ C ile yazılmış, modüler ve hafif bir regresyon kütüphanesi. Lineer/Logisti
 ## Özellikler
 
 - Modeller: Linear, Logistic, Poisson, Ridge, Lasso, Elastic Net, Robust Regression, SVR
-- Optimizasyon: İlk-derem (GD, SGD, Momentum, Nesterov, Adagrad, Adadelta, RMSProp, Adam, AdamW, Adamax, Nadam), İkinci-derecem (Newton, Quasi-Newton, L-BFGS), Koordinat inişi
+- Optimizasyon: İlk-dereceden (GD, SGD, Momentum, Nesterov, Adagrad, Adadelta, RMSProp, Adam, AdamW, Adamax, Nadam), İkinci-dereceden (Newton, Quasi-Newton, L-BFGS), Koordinat inişi
 - Analitik çözücüler: Normal denklem, QR ayrışımı, SVD
 - Kayıplar: MSE, MAE, LogLoss, Huber
-- Metrikler: Accuracy, R², MAPE
+- Metrikler: Accuracy, R², 
 - Bağımlılık yok, C99, kolay derlenir (GCC/Clang)
 
 ## Mimari (kısa özet)
