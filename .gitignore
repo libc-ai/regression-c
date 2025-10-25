@@ -1,0 +1,25 @@
+# OS / editor metadata
+.DS_Store
+.vscode/
+.idea/
+
+# Python helpers
+__pycache__/
+*.pyc
+
+# Backup files
+*.bak
+
+# Build artifacts
+*.o
+*.obj
+*.out
+*.exe
+/build/
+/dist/
+
+# Keep only sources in examples: allow .c, Makefile, README.md
+examples/**
+!examples/**/*.c
+!examples/**/Makefile
+!examples/**/README.md
