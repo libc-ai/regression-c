@@ -1,250 +1,83 @@
-.
-├── include/
-│   ├── models/
-│   │   ├── linear_regression.h
-│   │   ├── logistic_regression.h
-│   │   ├── poisson_regression.h
-│   │   ├── robust_regression.h
-│   │   ├── lasso.h
-│   │   ├── ridge.h
-│   │   ├── elastic_net.h
-│   │   └── svr.h
-│   │
-│   ├── optimizers/
-│   │   ├── optimizer.h
-│   │   ├── first_order.h
-│   │   ├── second_order.h
-│   │   └── coordinate.h
-│   │
-│   ├── analytic/
-│   │   ├── normal_equation.h
-│   │   └── ridge_analytic.h
-│   │
-│   ├── loss/
-│   │   └── loss.h
-│   │
-│   ├── metrics/
-│   │   └── metrics.h
-│   │
-│   ├── utils/
-│   │   ├── matrix.h
-│   │   ├── math.h
-│   │   └── io.h
-│   │
-│   ├── types.h
-│   └── creg.h
-│
-├── src/
-│   ├── models/
-│   │   ├── linear_regression/
-│   │   │   ├── linear_regression.c
-│   │   │   └── README.md
-│   │   ├── logistic_regression/
-│   │   │   ├── logistic_regression.c
-│   │   │   └── README.md
-│   │   ├── poisson_regression/
-│   │   │   ├── poisson_regression.c
-│   │   │   └── README.md
-│   │   ├── robust_regression/
-│   │   │   ├── robust_regression.c
-│   │   │   └── README.md
-│   │   ├── lasso/
-│   │   │   ├── lasso.c
-│   │   │   └── README.md
-│   │   ├── ridge/
-│   │   │   ├── ridge.c
-│   │   │   └── README.md
-│   │   ├── elastic_net/
-│   │   │   ├── elastic_net.c
-│   │   │   └── README.md
-│   │   └── svr/
-│   │       ├── svr.c
-│   │       └── README.md
-│   │
-│   ├── optimizers/
-│   │   ├── FirstOrder/
-│   │   │   ├── gd/
-│   │   │   │   ├── gd.c
-│   │   │   │   └── README.md
-│   │   │   ├── sgd/
-│   │   │   │   ├── sgd.c
-│   │   │   │   └── README.md
-│   │   │   ├── minibatch_gd/
-│   │   │   │   ├── minibatch_gd.c
-│   │   │   │   └── README.md
-│   │   │   ├── momentum/
-│   │   │   │   ├── momentum.c
-│   │   │   │   └── README.md
-│   │   │   ├── nesterov_momentum/
-│   │   │   │   ├── nesterov_momentum.c
-│   │   │   │   └── README.md
-│   │   │   ├── adagrad/
-│   │   │   │   ├── adagrad.c
-│   │   │   │   └── README.md
-│   │   │   ├── adadelta/
-│   │   │   │   ├── adadelta.c
-│   │   │   │   └── README.md
-│   │   │   ├── rmsprop/
-│   │   │   │   ├── rmsprop.c
-│   │   │   │   └── README.md
-│   │   │   ├── adam/
-│   │   │   │   ├── adam.c
-│   │   │   │   └── README.md
-│   │   │   ├── adamw/
-│   │   │   │   ├── adamw.c
-│   │   │   │   └── README.md
-│   │   │   ├── adamax/
-│   │   │   │   ├── adamax.c
-│   │   │   │   └── README.md
-│   │   │   └── nadam/
-│   │   │       ├── nadam.c
-│   │   │       └── README.md
-│   │   │
-│   │   ├── SecondOrder/
-│   │   │   ├── newton_method/
-│   │   │   │   ├── newton_method.c
-│   │   │   │   └── README.md
-│   │   │   └── lbfgs/
-│   │   │       ├── lbfgs.c
-│   │   │       └── README.md
-│   │   │
-│   │   └── Coordinate/
-│   │       └── coordinate_descent/
-│   │           ├── coordinate_descent.c
-│   │           └── README.md
-│   │
-│   ├── analytic/
-│   │   ├── normal_equation/
-│   │   │   ├── normal_equation.c
-│   │   │   └── README.md
-│   │   ├── ridge_analytic/
-│   │   │   ├── ridge_analytic.c
-│   │   │   └── README.md
-│   │   ├── qr/
-│   │   │   ├── qr.c
-│   │   │   └── README.md
-│   │   └── svd/
-│   │       ├── svd.c
-│   │       └── README.md
-│   │
-│   ├── loss/
-│   │   ├── mse/
-│   │   │   ├── mse.c
-│   │   │   └── README.md
-│   │   ├── mae/
-│   │   │   ├── mae.c
-│   │   │   └── README.md
-│   │   ├── logloss/
-│   │   │   ├── logloss.c
-│   │   │   └── README.md
-│   │   ├── huber/
-│   │   │   ├── huber.c
-│   │   │   └── README.md
-│   │   └── loss_gradients/
-│   │       ├── loss_gradients.c
-│   │       └── README.md
-│   │
-│   ├── metrics/
-│   │   ├── r2/
-│   │   │   ├── r2.c
-│   │   │   └── README.md
-│   │   ├── accuracy/
-│   │   │   ├── accuracy.c
-│   │   │   └── README.md
-│   │   └── mape/
-│   │       ├── mape.c
-│   │       └── README.md
-│   │
-│   └── utils/
-│       ├── matrix/
-│       │   ├── matrix.c
-│       │   └── README.md
-│       ├── math/
-│       │   ├── math.c
-│       │   └── README.md
-│       └── io/
-│           ├── io.c
-│           └── README.md
-│
-examples/
-├── Linear_Regression/
-│   ├── Analytic/
-│   │   ├── normal_equation.c
-│   │   ├── qr.c
-│   │   └── svd.c
-│   │
-│   └── Iterative/
-│       ├── gd.c
-│       ├── sgd.c
-│       ├── mini_batch.c
-│       ├── momentum.c
-│       ├── nesterov_momentum.c
-│       ├── adagrad.c
-│       ├── adadelta.c
-│       ├── rmsprop.c
-│       ├── adam.c
-│       ├── adamw.c
-│       ├── adamax.c
-│       ├── nadam.c
-│       ├── newton.c
-│       ├── quasi_newton.c       // (LBFGS kullanarak)
-│       └── coordinate_descent.c
-│
-├── Logistic_Regression/
-│   └── Iterative/
-│       ├── gd.c
-│       ├── sgd.c
-│       ├── mini_batch.c
-│       ├── momentum.c
-│       ├── nesterov_momentum.c
-│       ├── adagrad.c
-│       ├── adadelta.c
-│       ├── rmsprop.c
-│       ├── adam.c
-│       ├── adamw.c
-│       ├── adamax.c
-│       ├── nadam.c
-│       ├── newton.c
-│       └── quasi_newton.c       // (LBFGS kullanarak)
-│
-├── Ridge_Regression/
-│   ├── Analytic/
-│   │   └── closed_form.c        // (ridge_analytic.c'yi kullanır)
-│   │
-│   └── Iterative/
-│       ├── gd.c
-│       ├── sgd.c
-│       ├── adam.c
-│       └── newton.c
-│
-├── Lasso_Regression/
-│   └── Iterative/
-│       └── coordinate_descent.c
-│
-├── ElasticNet_Regression/
-│   └── Iterative/
-│       └── coordinate_descent.c
-│
-├── Poisson_Regression/
-│   └── Iterative/
-│       ├── gd.c
-│       ├── sgd.c
-│       ├── adam.c
-│       ├── newton.c
-│       └── quasi_newton.c
-│
-├── Robust_Regression/
-│   └── Iterative/
-│       ├── gd.c
-│       ├── sgd.c
-│       └── coordinate_descent.c
-│
-├── SVR/
-│   └── Iterative/
-│       ├── gd.c
-│       ├── sgd.c
-│       └── coordinate_descent.c
-│
-├── .gitignore
-├── Makefile
-└── README.md
+# regression-c
+
+C ile yazılmış, modüler ve hafif bir regresyon kütüphanesi. Lineer/Logistik/Poisson/Ridge/Lasso/Elastic Net/Robust/SVR modelleri; analitik çözücüler (Normal Denklem, QR, SVD) ve zengin optimizasyon algoritmaları (GD, SGD, Momentum, Nesterov, Adagrad, Adadelta, RMSProp, Adam, AdamW, Adamax, Nadam, Newton, Quasi-Newton, L-BFGS, Koordinat İnişi) ile.
+
+## Özellikler
+
+- Modeller: Linear, Logistic, Poisson, Ridge, Lasso, Elastic Net, Robust Regression, SVR
+- Optimizasyon: İlk-derem (GD, SGD, Momentum, Nesterov, Adagrad, Adadelta, RMSProp, Adam, AdamW, Adamax, Nadam), İkinci-derecem (Newton, Quasi-Newton, L-BFGS), Koordinat inişi
+- Analitik çözücüler: Normal denklem, QR ayrışımı, SVD
+- Kayıplar: MSE, MAE, LogLoss, Huber
+- Metrikler: Accuracy, R², MAPE
+- Bağımlılık yok, C99, kolay derlenir (GCC/Clang)
+
+## Mimari (kısa özet)
+
+- Public başlıklar `include/` altında; örnekler yalnızca `creg.h` üzerinden tüm API’ye erişir.
+- `src/` tarafında her modül kendi public başlığını include eder ve gerektiğinde `types.h`, `utils/*` başlıklarını kullanır.
+- Ayrıntılar için `ARCHITECTURE.md` dosyasına bakın.
+
+## Dizin Yapısı
+
+- `include/`: Public API (modeller, optimizers, analytic, loss, metrics, utils, `types.h`, `creg.h`)
+- `src/`: Modül implementasyonları (modeller, optimizers, analytic, loss, metrics, utils)
+- `examples/`: Derlenebilir, minimal örnek programlar (yalnızca `<stdio.h>` + `creg.h` içerir)
+- `Makefile`: Örnekleri derlemek için üst seviye make kuralları
+- `ARCHITECTURE.md`: Mimari kurallar ve include sözleşmeleri
+
+## Kurulum ve Derleme
+
+Önkoşullar: GCC ya da Clang (C99), make.
+
+Örnekleri derlemek için proje kökünde:
+
+```sh
+make
+```
+
+Temizlemek için:
+
+```sh
+make clean
+```
+
+`make` tüm `examples/` altındaki `.c` dosyalarını derleyip aynı dizinlerde çalıştırılabilirler üretir (repoda .gitignore ile takip dışıdır).
+
+## Kullanım Deseni
+
+- Örnekler: Yalnızca `#include "creg.h"` (ve gerekiyorsa `<stdio.h>`). Başka internal başlık include edilmez.
+- src implementasyonları: Kendi public başlığını ve ihtiyaca göre `types.h`, `utils/matrix.h`, `utils/math.h`, `loss/loss.h` vb. include eder.
+
+## Katkı
+
+PR’lar ve issue’lar memnuniyetle karşılanır. Yeni bir modül eklerken:
+- Public başlığı `include/<kategori>/<isim>.h` altında oluşturun.
+- Implementasyonu `src/<kategori>/<isim>/<isim>.c` altında konumlandırın.
+- Örnek gerekiyorsa `examples/` altında minimal bir `.c` dosyası ekleyin ve yalnızca `creg.h` kullanın.
+
+## Yol Haritası (öneri)
+
+- Temel veri yapıları ve API’lerin doldurulması (şu an bir kısmı placeholder)
+- Test altyapısı ve CI (GitHub Actions ile `make` doğrulaması)
+- Dokümantasyon ve basit benchmark örnekleri
+
+## Lisans
+
+Bu proje MIT lisansı ile lisanslanmıştır. Ayrıntılar için `LICENSE` dosyasına bakın.
+
+---
+
+## English Summary
+
+Lightweight, modular regression library in C. Models: Linear/Logistic/Poisson/Ridge/Lasso/Elastic Net/Robust/SVR; Analytic solvers (Normal Equation, QR, SVD); Optimizers (GD, SGD, Momentum, Nesterov, Adagrad, Adadelta, RMSProp, Adam, AdamW, Adamax, Nadam, Newton, Quasi-Newton, L-BFGS, Coordinate Descent). No external deps, C99, easy to build.
+
+Quick build
+
+```sh
+make
+make clean
+```
+
+Architecture highlights
+- Public headers live under `include/` and examples only include `creg.h` (+ `<stdio.h>`)
+- Implementations under `src/` include their own public headers and `types.h`/`utils/*` as needed
