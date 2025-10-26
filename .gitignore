@@ -6,6 +6,7 @@
 # Python helpers
 __pycache__/
 *.pyc
+*.py
 
 # Backup files
 *.bak
